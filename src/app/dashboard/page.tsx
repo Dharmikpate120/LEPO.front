@@ -1,7 +1,23 @@
+"use client";
+
+import DashboardLayout from "@/components/DashboardLayout";
+import { getPublicRepos } from "@/functions/getPublicRepos";
+import { GitHubRepo } from "@/types/githubrepo";
+import { Session } from "next-auth";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+
 
 export default function Home() {
+  const { data } = useSession();
+  console.log(data?.repos);
+
+  // useEffect(()=>{
+  //   console.log("calling");
+  //   }, [])
   return (
+
     <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
         <Image
@@ -64,7 +80,7 @@ export default function Home() {
             alt="File icon"
             width={16}
             height={16}
-          />
+            />
           Learn
         </a>
         <a
@@ -79,7 +95,7 @@ export default function Home() {
             alt="Window icon"
             width={16}
             height={16}
-          />
+            />
           Examples
         </a>
         <a
