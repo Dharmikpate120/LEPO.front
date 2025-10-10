@@ -2,7 +2,8 @@ FROM node:22
 
 COPY . .
 
-RUN npm run build
+RUN "npm i && \
+    npm run build"
 
 EXPOSE 3000
 
