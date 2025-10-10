@@ -30,19 +30,19 @@ const authOptions = {
   callbacks : {
   // Add the access token to the JWT
   async jwt({ token, account }: { token: CustomJWT; account: Account | null }) {
-    console.log(account, token);
+    // console.log(account, token);
 
     if (account) {
       token.accessToken = account.access_token;
     }
     return token;
   },
-  // Expose the access token to the session
-  async session({ session, token }: { session: CustomSession; token: CustomJWT }) {
-    const response =await getPublicRepos(token?.accessToken || ""); 
-    session.repos = response?.data;
-    return session;
-  },
+  // // Expose the access token to the session
+  // async session({ session, token }: { session: CustomSession; token: CustomJWT }) {
+  //   const response =await getPublicRepos(token?.accessToken || ""); 
+  //   session.repos = response?.data;
+  //   return session;
+  // },
 }
 };
 

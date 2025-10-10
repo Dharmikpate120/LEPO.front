@@ -110,3 +110,21 @@ export type RepoPermissions = {
   triage: boolean;
   pull: boolean;
 };
+
+export type Skill = {
+  name: string;
+  mastery: number; // Out of 1000
+  subSkills?: SubSkill[];
+};
+
+export type SubSkill = {
+  name: string;
+  mastery: number; // Out of 1000
+};
+
+export type Commit = {
+  sha: string;
+  message: string;
+  date: string;
+  skills: Skill[];
+};
